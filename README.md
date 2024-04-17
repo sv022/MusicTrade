@@ -1,6 +1,4 @@
-# Project Name
-
-Short project description or tagline.
+# MusicTrade.ru
 
 ![Project Logo or Screenshot](images/guitar_logo_edited.png)
 
