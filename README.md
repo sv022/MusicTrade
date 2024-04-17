@@ -2,7 +2,7 @@
 
 Short project description or tagline.
 
-![Project Logo or Screenshot](images/logo.png)
+![Project Logo or Screenshot](images/guitar_logo.png)
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![GitHub Stars](https://img.shields.io/github/stars/yourusername/yourproject)](https://github.com/yourusername/yourproject/stargazers)
