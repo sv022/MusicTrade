@@ -6,13 +6,10 @@ using MTBackend.Utilities;
 namespace MTBackend.Controllers;
 
 [ApiController]
-public class AuthController : ControllerBase
+public class AuthController(AppDbContent context) : ControllerBase
 {
-    readonly private AppDbContent db;
+    readonly private AppDbContent db = context;
     readonly private PasswordHasher Hasher = new();
-    public AuthController(AppDbContent context){
-        db = context;
-    }
 
     [HttpPost("auth/register")]
     public IActionResult Register(UserRegisterBody Body){
@@ -24,7 +21,7 @@ public class AuthController : ControllerBase
             Hasher.Hash(Body.Password), 
             Body.City, 
             Body.Phone, 
-            DateTime.UtcNow
+            DateOnly.FromDateTime(DateTime.Now)
             );
 #pragma warning restore CS8604 // Возможно, аргумент-ссылка, допускающий значение NULL.
 
