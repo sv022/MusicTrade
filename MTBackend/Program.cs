@@ -3,11 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-// 
-// 
-
+// Configure core services
 string? connection = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDbContent>(options => options.UseNpgsql(connection).UseSnakeCaseNamingConvention());
 
@@ -18,16 +14,17 @@ builder.Services.AddCors();
 
 var app = builder.Build();
 
+// Configure controllers
 app.MapControllerRoute(name: "default",
     pattern: "{controller=UserController}/{action=Index}/{id?}");
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+if (app.Environment.IsDevelopment()) {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
+// Configure middleware
 app.UseHttpsRedirection();
 app.UseCors(options => options.AllowAnyOrigin());
 
