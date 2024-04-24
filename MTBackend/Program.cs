@@ -17,6 +17,8 @@ var app = builder.Build();
 // Configure controllers
 app.MapControllerRoute(name: "default",
     pattern: "{controller=UserController}/{action=Index}/{id?}");
+app.MapControllerRoute(name: "auth", 
+    pattern: "{controller=AuthController}/{action=Index}/{id?}");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment()) {
