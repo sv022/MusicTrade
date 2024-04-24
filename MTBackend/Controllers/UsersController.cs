@@ -1,7 +1,6 @@
-using System.Data.Common;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using MTBackend.Models;
+
 
 namespace MTBackend.Controllers;
 

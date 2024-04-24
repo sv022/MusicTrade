@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
+
 namespace MTBackend.Models
 {
     public class AppDbContent : DbContext{
