@@ -2,6 +2,7 @@ using MTBackend.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using MTBackend.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,9 @@ builder.Services.AddControllers();
 builder.Services.AddMvcCore();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors();
+
+// Configure custom services
+builder.Services.AddTransient<ITokenService, TokenService>();
 
 // Configure toket authentication
 builder.Services.AddAuthentication("bearer")

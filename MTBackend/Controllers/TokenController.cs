@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MTBackend.Models;
-using MTBackend.Utilities;
+using MTBackend.Services;
 
 namespace RefreshTokensWebApiExample.Controllers;
 
@@ -25,7 +25,7 @@ public class TokenController : ControllerBase
         var username = principal?.Identity?.Name; //this is mapped to the Name claim by default
 
         var user = db.Users.SingleOrDefault(u => u.Username == username);
-        if (user == null || user.RefreshToken != refreshToken) return BadRequest();
+        if (user == null || user.Refreshtoken != refreshToken) return BadRequest();
 
     #pragma warning disable CS8602 // Разыменование вероятной пустой ссылки.
 
@@ -35,7 +35,7 @@ public class TokenController : ControllerBase
 
         var newRefreshToken = _tokenService.GenerateRefreshToken();
 
-        user.RefreshToken = newRefreshToken;
+        user.Refreshtoken = newRefreshToken;
         await db.SaveChangesAsync();
 
         return new ObjectResult(new {
@@ -52,7 +52,7 @@ public class TokenController : ControllerBase
         var user = db.Users.SingleOrDefault(u => u.Username == username);
         if (user == null) return BadRequest();
 
-        user.RefreshToken = "";
+        user.Refreshtoken = "";
 
         await db.SaveChangesAsync();
         return NoContent();

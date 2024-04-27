@@ -22,7 +22,7 @@ public class User (string Email, string Username, string Password,
     public DateOnly Signupdate { get; set; } = Signupdate;
 
     public string City { get; set; } = City;
-    public string RefreshToken { get; set; } = "";
+    public string Refreshtoken { get; set; } = "";
 
     public virtual ICollection<Listing> Listings { get; set; } = new List<Listing>();
 

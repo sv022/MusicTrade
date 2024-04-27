@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 
-namespace MTBackend.Utilities;
+namespace MTBackend.Services;
 
 public class TokenService : ITokenService
 {

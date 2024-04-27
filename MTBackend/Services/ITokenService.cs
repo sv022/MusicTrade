@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Security.Claims;
 
-namespace MTBackend.Utilities;
+namespace MTBackend.Services;
 
 public interface ITokenService
 {
