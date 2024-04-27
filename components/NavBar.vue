@@ -1,26 +1,30 @@
 <template>
 
-<div class="topmenu">
-    <ul class="topleftmenu">
+<div class="flex h-[60px] w-screen border text-center">
+    <ul class="basis-1/4 flex flex-row items-center justify-around text-nowrap">
         <li>O нас</li>
         <li>Продавцам</li>
         <li>Покупателям</li>
     </ul>
-    <ul class='userbuttons'>
+    <div class="basis-1/2 flex flex-row-reverse items-center text-center space-x-10">
+      <div class="basis-1/4 min-w-40 ml-3">
+        <button class=" min-w-36 h-8 bg-blueish">Разместить</button>
+      </div>
+      <ul class='basis-1/3 flex flex-row justify-between text-nowrap space-x-0.5'>
         <li>Избранное</li>
         <li>Мои объявления</li>
-        <li>Разместить</li>
-    </ul>
-    <div class="userprofile">
+      </ul>
+    </div>
+    <div class="basis-1/4 flex flex-row items-center justify-around text-nowrap">
         <p>Вход и регистрация</p>
     </div>
 </div>
 <div class="navbar" id="main">
-    <div class="logo">
+    <div class="w-72 ml-6">
         <a href="index.html">
             <picture>
-                <source media="(min-width: 730px)" srcset="\img\guitar_logo.png" style="width: 50%; transition: 1s;">
-                <img src="/img/guitar_logo_small.png" style="width: 100%; transition: 1s;">
+                <source media="(min-width: 1020px)" srcset="\img\guitar_logo.png">
+                <img src="/img/guitar_logo_small.png">
             </picture>
         </a>
     </div>
@@ -39,7 +43,7 @@
   border-right: 1px solid #232122;
 }
   
-@media (max-width: 730px) {
+@media (max-width: 820px) {
   .logo {
     width: 6%;
   }

@@ -1,5 +1,5 @@
 <template>
-    <div style="height: 1000px;">
+    <div class="flex min-h-64">
         Hello
     </div>
 </template>
