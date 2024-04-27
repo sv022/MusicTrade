@@ -26,6 +26,14 @@ public class AuthController(AppDbContent context, ITokenService tokenService) : 
             );
 #pragma warning restore CS8604 // Возможно, аргумент-ссылка, допускающий значение NULL.
 
+        // Check avaliable Username
+        var user = db.Users.SingleOrDefault(u => u.Username == NewUser.Username);
+        if (user != null) return StatusCode(409);
+
+        // Check avaliable Email
+        user = db.Users.SingleOrDefault(u => u.Email == NewUser.Email);
+        if (user != null) return StatusCode(409);
+
         try {
             db.Users.Add(NewUser);
             db.SaveChanges();
