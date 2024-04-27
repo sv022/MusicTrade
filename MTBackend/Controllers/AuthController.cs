@@ -6,13 +6,14 @@ using MTBackend.Utilities;
 namespace MTBackend.Controllers;
 
 [ApiController]
-public class AuthController(AppDbContent context) : ControllerBase
+public class AuthController(AppDbContent context, ITokenService tokenService) : ControllerBase
 {
     readonly private AppDbContent db = context;
     readonly private PasswordHasher Hasher = new();
+    readonly private ITokenService tokenService = tokenService;
 
     [HttpPost("auth/register")]
-    public IActionResult Register(UserRegisterBody Body){
+    public IActionResult SignUp(UserRegisterBody Body){
 
 #pragma warning disable CS8604 // Возможно, аргумент-ссылка, допускающий значение NULL.
         var NewUser = new User (
@@ -34,5 +35,6 @@ public class AuthController(AppDbContent context) : ControllerBase
             return BadRequest(new {e.InnerException?.Message});
         }
     }
+
 }
 
