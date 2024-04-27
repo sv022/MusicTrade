@@ -1,14 +1,18 @@
 namespace MTBackend.Models;
 
 public class UserSignUpBody {
-    public string? Email { get; set; }
-    public string? Username { get; set; }
-    public string? Password { get; set; }
-    public string? City { get; set; }
-    public string? Phone { get; set; }
+    public required string Email { get; set; }
+    public required string Username { get; set; }
+    public required string Password { get; set; }
+    public required string City { get; set; }
+    public required string Phone { get; set; }
 }
 
 public class UserLoginBody {
-    public string? Username { get; set; }
-    public string? Password { get; set; }
+    public required string Username { get; set; }
+    public required string Password { get; set; }
+}
+public class TokenRefreshBody {
+    public required string Token { get; set; }
+    public required string RefreshToken { get; set; }
 }

@@ -19,13 +19,13 @@ public class TokenController : ControllerBase
     }
 
     [HttpPost("token/refresh")]
-    public async Task<IActionResult> Refresh(string token, string refreshToken)
+    public async Task<IActionResult> Refresh(TokenRefreshBody body)
     {
-        var principal = _tokenService.GetPrincipalFromExpiredToken(token);
+        var principal = _tokenService.GetPrincipalFromExpiredToken(body.Token);
         var username = principal?.Identity?.Name; //this is mapped to the Name claim by default
 
         var user = db.Users.SingleOrDefault(u => u.Username == username);
-        if (user == null || user.Refreshtoken != refreshToken) return BadRequest();
+        if (user == null || user.Refreshtoken != body.RefreshToken) return BadRequest();
 
     #pragma warning disable CS8602 // Разыменование вероятной пустой ссылки.
 
@@ -45,9 +45,9 @@ public class TokenController : ControllerBase
     }
 
     [HttpPost("token/revoke"), Authorize]
-    public async Task<IActionResult> Revoke()
+    public async Task<IActionResult> Revoke(string username)
     {
-        var username = User?.Identity?.Name;
+        // var username = User?.Identity?.Name;
 
         var user = db.Users.SingleOrDefault(u => u.Username == username);
         if (user == null) return BadRequest();
