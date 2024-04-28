@@ -1,12 +1,6 @@
 <template>
   <div>
-    <header>
-      <NavBar />
-    </header>
     <NuxtPage />
-    <footer>
-      <Footer />
-    </footer>
   </div>
 </template>
 
@@ -17,6 +11,7 @@
 }
 html {
   font-family: 'Roboto', sans-serif;
+  color: #232122;
   font-size: 20px;
 }
 footer {
