@@ -1,5 +1,18 @@
+<script setup>
+
+const userCity = useCookie("userCity")
+userCity.value = userCity.value || "Москва"
+
+</script>
+
 <template>
-    <div class="flex min-h-64">
-        Hello
-    </div>
+    <NavBarTop />
+    <NavBarSearch />
+    <ListingContainer />
 </template>
+
+<style scoped>
+
+
+
+</style>
