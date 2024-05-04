@@ -16,7 +16,8 @@ export default {
         "cold-white": "#f8fff8",
         "slate-gray": "#a9ad9b",
         "soft-gray": "#dddede",
-        "blue-gray": "#7BA4A8",
+        //"blue-gray": "#7BA4A8",
+        "blue-gray": "#94b0b3",
         "dark-blue": "#2f4858"
       }
     },
