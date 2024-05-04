@@ -1,7 +1,7 @@
 <template>
 
 <div class="flex flex-row items-center w-full h-32 border-b border-soft-gray" id="main">
-    <div class="w-72 mx-8 max-h-24">
+    <div class="w-fit max-w-80 mx-8">
         <NuxtLink to="/">
             <picture>
                 <source media="(min-width: 1020px)" srcset="\img\guitar_logo.png">
