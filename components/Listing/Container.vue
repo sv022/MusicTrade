@@ -10,7 +10,8 @@ let listings = ref(l)
 </script>
 
 <template>
-    <div class="flex flex-wrap p-10">
+    <h2 class="p-10 text-3xl">Интересные объявления</h2>
+    <div class="flex flex-wrap px-14">
         <ListingCard v-for="listing in listings" :key="listing.id" :item="listing"/>
     </div>
 </template>
