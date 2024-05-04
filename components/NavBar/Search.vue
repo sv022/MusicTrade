@@ -1,7 +1,7 @@
 <template>
 
-<div class="navbar" id="main">
-    <div class="w-72 ml-6">
+<div class="flex flex-row items-center w-full h-32 border-b border-soft-gray" id="main">
+    <div class="w-72 mx-8 max-h-24">
         <NuxtLink to="/">
             <picture>
                 <source media="(min-width: 1020px)" srcset="\img\guitar_logo.png">
@@ -9,57 +9,23 @@
             </picture>
         </NuxtLink>
     </div>
+    <div class="flex flex-row justify-between w-1/2 h-10 p-2 items-center border border-gray-500 rounded">
+        <input type="text" placeholder="Поиск по объявлениям" id="searchbar">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+        </svg>
+    </div>
 </div>  
 
 </template>
 
 <style scoped>
-.logo {
-    padding: 0.1%;
-    padding-left: 2vw;
-    padding-right: 3vw;
-    margin-right: 2vw;
-    text-align: center;
-    width: 17%;
-    border-right: 1px solid #232122;
-}
-    
-@media (max-width: 820px) {
-    .logo {
-    width: 6%;
-    }
-}
-
-.navbar {
-    display: flex;
-    width: 100%;
-    height: 120px;
-    align-items : center;
-    border-bottom: 1px solid #DDDEDE;
-}
-
-.searchbar {
-    display: flex;
-    width: 45vw;
-    height: 70%;
-    border: 1px solid #232122;
-    border-radius: 5px;
-    /* margin-left: 5%; */
-    /* up to 1085 */
-    justify-content: left;
-    margin-right: 2vw;
-    padding-left: 1px;
-    padding-right: 7px;
-    padding-top: 1px;
-    padding-bottom: 1px;
-}
-    
-.searchbar input {
+input {
     margin-left: 5px;
     width: 93%; 
     border: none;
     outline: none;
-    color: #525c5c;
+    color: #2f4858;
     border-radius: 5px;
 }
 
