@@ -6,9 +6,9 @@ const userStore = useUserStore();
 
 const { errors, handleSubmit, defineField } = useForm({
   validationSchema: yup.object({
-    username: yup.string().required(),
-    email: yup.string().email().required(),
-    password: yup.string().min(8).required(),
+    username: yup.string().required("*Обязательное поле"),
+    email: yup.string().email("*Некорректный адрес email").required("*Обязательное поле"),
+    password: yup.string().min(8, "Пароль должен содержать как минимум 8 символов").required("*Обязательное поле"),
   }),
 });
 

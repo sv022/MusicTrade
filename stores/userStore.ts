@@ -38,6 +38,10 @@ export const useUserStore = defineStore('UserStore', () => {
         } else {
             errorAuth.value = true;
             errorMsg.value = "Неверно введены данные или аккаунта не существует";
+            setTimeout(() => {
+                errorAuth.value = false;
+                errorMsg.value = "";
+            }, 2000);
         }
     }
 
