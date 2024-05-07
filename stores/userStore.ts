@@ -1,9 +1,17 @@
 import type { IUser, IUserLogin } from "~/types/user.interface";
 
+function getLocalItem(name : string){
+    if (typeof window === 'object' || typeof window !== 'undefined') {
+        const item = localStorage.getItem(name);
+        return item || "";
+    }
+    return "";
+}
+
 export const useUserStore = defineStore('UserStore', () => {
-    const user = ref({username: "" || localStorage.getItem("_cachedUserData"), password: ""} as IUser);
-    const token = ref('' || localStorage.getItem("_token"));
-    const refreshToken = ref('' || localStorage.getItem("_tokenRefresh"));
+    const user = ref({username: getLocalItem("_cachedUserData"), password: ""} as IUser);
+    const token = ref(getLocalItem("_token"));
+    const refreshToken = ref(getLocalItem("_tokenRefresh"));
     const isAuth = ref(!(!token.value) || false);
     const errorAuth = ref(false);
     const errorMsg = ref('');   
