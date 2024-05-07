@@ -1,10 +1,10 @@
 <template>
 
-<div class="flex flex-row items-center w-full h-32 border-b border-soft-gray" id="main">
-    <div class="w-fit max-w-80 mx-8">
+<div class="flex flex-row items-center w-full h-16 lg:h-24 2xl:h-32 border-b border-soft-gray" id="main">
+    <div class="w-fit max-w-10 lg:max-w-64 2xl:max-w-80 mx-8">
         <NuxtLink to="/">
             <picture>
-                <source media="(min-width: 1020px)" srcset="\img\guitar_logo.png">
+                <source media="(min-width: 1024px)" srcset="\img\guitar_logo.png">
                 <img src="/img/guitar_logo_small.png">
             </picture>
         </NuxtLink>
