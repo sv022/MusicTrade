@@ -55,6 +55,7 @@ export const useUserStore = defineStore('UserStore', () => {
         errorMsg,
         // Methods
         userSingUp,
-        userLogin
+        userLogin,
+        userLogout
     }
 })
