@@ -1,10 +1,10 @@
 import type { IUser, IUserLogin } from "~/types/user.interface";
 
 export const useUserStore = defineStore('UserStore', () => {
-    const isAuth = ref(false || !(!(localStorage.getItem("_token"))));
     const user = ref({username: "" || localStorage.getItem("_cachedUserData"), password: ""} as IUser);
     const token = ref('' || localStorage.getItem("_token"));
-    const refreshToken = ref('' || "_tokenRefresh");
+    const refreshToken = ref('' || localStorage.getItem("_tokenRefresh"));
+    const isAuth = ref(!(!token.value) || false);
     const errorAuth = ref(false);
     const errorMsg = ref('');   
 
