@@ -3,7 +3,11 @@
 import { useForm } from 'vee-validate';
 import * as yup from 'yup';
 
-const userStore = useUserStore();
+let userStore;
+
+onMounted(() => {
+    userStore = useUserStore();
+}) 
 
 const { errors, handleSubmit, defineField } = useForm({
   validationSchema: yup.object({
