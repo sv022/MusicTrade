@@ -6,7 +6,7 @@ const userStore = useUserStore();
 
 <template>
 
-<div class="flex h-[60px] w-screen border text-center">
+<div class="flex h-[60px] w-screen border text-center sticky top-0 z-10 bg-white">
     <ul class="basis-1/4 flex flex-row items-center justify-around text-nowrap text-sm ml-3">
         <li>O нас</li>
         <li>Продавцам</li>
