@@ -1,0 +1,33 @@
+<script setup lang="ts">
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
+
+const userStore = useUserStore();
+
+</script>
+
+<template>
+    <DropdownMenu>
+        <DropdownMenuTrigger>
+            <div class="flex flex-row space-x-3 items-center">
+                <Avatar class="size-6">
+                    <AvatarImage src="https://github.com/radix-vue.png" alt="@radix-vue" />
+                    <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+                <p class="cursor-pointer">{{ userStore.user.username }}</p>
+            </div>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+            <DropdownMenuLabel>Мой аккаунт</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>Мои объявления</DropdownMenuItem>
+            <DropdownMenuItem @click="userStore.userLogout">Выйти</DropdownMenuItem>
+        </DropdownMenuContent>
+    </DropdownMenu>
+</template>
