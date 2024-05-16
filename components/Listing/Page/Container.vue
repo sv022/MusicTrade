@@ -1,8 +1,8 @@
 <template>
 
-<div class="p-5 md:p-16 pt-5">
+<div class="p-5 md:px-32 pt-7">
     <div class="flex flex-col md:flex-row">
-        <ListingPageImage />
+        <ListingPageGallery />
         <ListingPageInfo />
     </div>
     <ListingPageDescription/>
