@@ -26,7 +26,9 @@ const userStore = useUserStore();
                 <NavBarUserProfile />            
             </div>
         </div>
-        <NuxtLink v-else to="/signin"><p>Вход и регистрация</p></NuxtLink>
+        <div class="ml-auto mr-16" v-else>
+            <NuxtLink to="/signin"><p>Вход и регистрация</p></NuxtLink>
+        </div>
     </div>
 </div>    
 
