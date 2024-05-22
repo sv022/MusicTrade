@@ -33,7 +33,7 @@
 .navbar {
     display: flex;
     width: 100%;
-    height: 120px;
+    height: 100px;
     align-items : center;
     border-bottom: 1px solid #DDDEDE;
 }

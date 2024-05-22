@@ -1,26 +1,27 @@
-<script setup lang="ts">
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+<script setup
+    lang="ts">
+        import {
+            DropdownMenu,
+            DropdownMenuContent,
+            DropdownMenuItem,
+            DropdownMenuLabel,
+            DropdownMenuSeparator,
+            DropdownMenuTrigger,
+        } from '@/components/ui/dropdown-menu'
 
-const userStore = useUserStore();
+        const userStore = useUserStore();
 
 </script>
 
 <template>
     <DropdownMenu>
         <DropdownMenuTrigger>
-            <div class="flex flex-row space-x-3 items-center">
+            <div class="flex flex-row space-x-3">
                 <Avatar class="size-6">
                     <AvatarImage src="https://github.com/radix-vue.png" alt="@radix-vue" />
                     <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
-                <p class="cursor-pointer">{{ userStore.user.username }}</p>
+               <p>{{ userStore.user.username }}</p>
             </div>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
