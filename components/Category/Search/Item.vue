@@ -1,11 +1,10 @@
-<script setup
-    lang="ts">
+<script setup lang="ts">
 
-        import type { ICategory } from "~/types/category.interface";
+import type { ICategory } from "~/types/category.interface";
 
-        const props = defineProps<{
-            item: ICategory
-        }>();
+const props = defineProps<{
+    item: ICategory
+}>();
 
 </script>
 
