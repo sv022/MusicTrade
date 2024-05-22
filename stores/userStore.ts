@@ -1,4 +1,4 @@
-import type { IUser, IUserLogin } from "~/types/user.interface";
+import type { IUser } from "~/types/user.interface";
 
 function getLocalItem(name : string){
     if (typeof window === 'object' || typeof window !== 'undefined') {
@@ -21,7 +21,7 @@ export const useUserStore = defineStore('UserStore', () => {
         navigateTo('/signin');
     }
 
-    const userLogin = (userInfo : IUserLogin) => {
+    const userLogin = (userInfo : { username: string, password: string }) => {
         if (userInfo.username == user.value.username && userInfo.password == user.value.password) {
             isAuth.value = true;
             token.value = "token";
