@@ -9,12 +9,22 @@ function getLocalItem(name : string){
 }
 
 export const useUserStore = defineStore('UserStore', () => {
-    const user = ref({username: getLocalItem("_cachedUserData"), password: ""} as IUser);
-    const token = ref(getLocalItem("_token"));
-    const refreshToken = ref(getLocalItem("_tokenRefresh"));
+    const user = ref<null | IUser>(null);
+    const token = useCookie("_token");
+    const refreshToken = useCookie("_tokenRefresh");
     const isAuth = ref(!(!token.value) || false);
     const errorAuth = ref(false);
-    const errorMsg = ref('');   
+    const errorMsg = ref('');
+
+    if (token.value) user.value = {
+        id: 1,
+        username: "svo",
+        email: "test@mail.com",
+        password: "11112222",
+        city: "msk",
+        phone: "no matter",
+        signupdate: "whenever"
+    }
 
     const userSingUp = (userInfo : IUser) => {
         user.value = userInfo;
@@ -26,12 +36,6 @@ export const useUserStore = defineStore('UserStore', () => {
             isAuth.value = true;
             token.value = "token";
             refreshToken.value = "refreshToken";
-            errorAuth.value = false;
-            errorMsg.value = "";
-
-            localStorage.setItem("_token", token.value);
-            localStorage.setItem("_tokenRefresh", refreshToken.value);
-            localStorage.setItem("_cachedUserData", userInfo.username);
 
             navigateTo('/');
 

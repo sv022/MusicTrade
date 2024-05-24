@@ -9,8 +9,8 @@ function getLocalItem(name : string){
 }
 
 export const useFavStore = defineStore('fav', () => {
-  const favCount = ref<number>(JSON.parse(localStorage.getItem('favIndex') || '0'))
-  const listings = ref<IListing[]>(JSON.parse(localStorage.getItem('fav') ?? '[]') as IListing[]);
+  let favCount = ref<number>(0);
+  let listings = ref<IListing[]>([]);
   // const favCount = ref<number>(0);
   // const listings = ref<IListing[]>([]);
 
@@ -28,6 +28,11 @@ export const useFavStore = defineStore('fav', () => {
     localStorage.removeItem('favIndex')
     localStorage.removeItem('fav')
   }
+
+  onMounted(() => {
+    favCount.value = JSON.parse(localStorage.getItem('favIndex') || '0');
+    listings.value = JSON.parse(localStorage.getItem('fav') ?? '[]')
+  })
 
   return {
     favCount,
