@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MTBackend.Models;
 
-
 namespace MTBackend.Controllers;
 
 [ApiController]
