@@ -32,7 +32,7 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
 </script>
 
 <template>
-  <div class="grid grid-cols-1 w-[426px] md:w-[800px] aspect-[4/3]">
+  <div class="grid grid-cols-1 w-[426px] md:w-[800px] md:min-w-[800px] aspect-[4/3]">
     <div class="flex w-full justify-around">
         <Carousel
           class="w-5/6"

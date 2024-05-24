@@ -14,7 +14,7 @@ const categories = ref<ICategory[]>([
 
 <template>
 
-<div class="p-10">
+<div class="p-10 pt-0">
     <h2 class="p-10 pl-0 text-3xl">Искать в категории</h2>
     <div class="flex flex-wrap">
         <CategorySearchItem v-for="c in categories" :key="c.name" :item="c" />

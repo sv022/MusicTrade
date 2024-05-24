@@ -15,7 +15,7 @@ function navigate() {
 
 <template>
 
-<div class="listing flex flex-row m-2 items-center justify-around" v-on:click="navigate()">
+<div class="listing flex flex-row m-2 items-center justify-around rounded-md" v-on:click="navigate()">
     <div class="w-[290px] min-w-[290px] mx-5">
       <img src="/img/listing_placeholder_2.jpg" class="listing_photo">
     </div>
