@@ -20,12 +20,14 @@ const userStore = useUserStore();
                 <p>Мои объявления</p>
             </div>
             <div class="flex flex-row space-x-10">
-                <IconsHeartFill @click="navigateTo('/favorites')" />
+                <NavBarFavButton />
                 <NavBarUserProfile />            
             </div>
         </div>
-        <div class="ml-auto mr-16" v-else>
-            <NuxtLink to="/signin"><p>Вход и регистрация</p></NuxtLink>
+        <div class="flex flex-row space-x-5 items-center ml-auto mr-16" v-else>
+            <!-- <IconsHeartFill @click="navigateTo('/favorites')" /> -->
+            <NavBarFavButton />
+            <NuxtLink to="/signin"><p class="text-center">Вход и регистрация</p></NuxtLink>
         </div>
     </div>
 </div>    
