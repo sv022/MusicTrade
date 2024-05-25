@@ -25,8 +25,9 @@
             </div>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-            <DropdownMenuLabel>Мой аккаунт</DropdownMenuLabel>
+            <DropdownMenuLabel> {{ userStore.user.username }}</DropdownMenuLabel>
             <DropdownMenuSeparator />
+            <DropdownMenuItem @click="navigateTo('/user/me')">Профиль</DropdownMenuItem>
             <DropdownMenuItem>Мои объявления</DropdownMenuItem>
             <DropdownMenuItem @click="userStore.userLogout">Выйти</DropdownMenuItem>
         </DropdownMenuContent>
