@@ -1,6 +1,6 @@
 <template>
 
-    <svg width="30.000000" height="28.000000" viewBox="0 0 30 28" fill="none" xmlns="http://www.w3.org/2000/svg"
+    <svg width="30.000000" height="28.000000" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink">
         <defs />
         <path id="矢量 117"
