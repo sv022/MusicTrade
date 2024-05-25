@@ -3,7 +3,9 @@ export default defineNuxtConfig({
   typescript: { strict: false },
   devtools: { enabled: true },
   modules: ["@nuxtjs/tailwindcss", '@pinia/nuxt', "shadcn-nuxt"],
-  routeRules: {
-    
-  }
+  runtimeConfig: {
+    public: {
+      API_MUSICTRADE_BACK: process.env.API_MUSICTRADE_BACK,
+    }
+  },
 })

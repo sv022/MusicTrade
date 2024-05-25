@@ -7,3 +7,8 @@ export interface IUser {
     phone: string,
     signupdate: string
 }
+
+export interface IUserAuth {
+    token: string,
+    refreshToken: string
+}
