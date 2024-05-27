@@ -4,10 +4,11 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using MTBackend.Services;
 
+DotNetEnv.Env.Load();
 var builder = WebApplication.CreateBuilder(args);
 
 // Configure database context
-string? connection = builder.Configuration.GetConnectionString("DefaultConnection");
+string? connection = builder.Configuration["CONNECTION_STRING"];
 builder.Services.AddDbContext<AppDbContent>(options => options.UseNpgsql(connection).UseSnakeCaseNamingConvention());
 
 // Configure core services
@@ -28,7 +29,7 @@ builder.Services.AddAuthentication("bearer")
             ValidateAudience = false,
             ValidateIssuerSigningKey = true,
             ValidateIssuer = false,
-            IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(builder.Configuration["serverSigningPassword"] + "")),
+            IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(builder.Configuration["SERVER_SIGNIN_PASSWORD"] + "")),
             ValidateLifetime = true,
             ClockSkew = TimeSpan.Zero //the default for this setting is 5 minutes
         };
