@@ -31,7 +31,6 @@ public partial class AppDbContent : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.UseSerialColumns();
         modelBuilder.Entity<Category>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("categories_pkey");
@@ -117,6 +116,7 @@ public partial class AppDbContent : DbContext
             entity.ToTable("users");
 
             entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Avatarid).HasColumnName("avatarid");
             entity.Property(e => e.City)
                 .HasColumnType("character varying")
                 .HasColumnName("city");
@@ -129,10 +129,18 @@ public partial class AppDbContent : DbContext
             entity.Property(e => e.Phone)
                 .HasMaxLength(255)
                 .HasColumnName("phone");
+            entity.Property(e => e.Refreshtoken)
+                .HasColumnType("character varying")
+                .HasColumnName("refreshtoken");
             entity.Property(e => e.Signupdate).HasColumnName("signupdate");
             entity.Property(e => e.Username)
                 .HasMaxLength(255)
                 .HasColumnName("username");
+
+            entity.HasOne(d => d.Avatar).WithMany(p => p.Users)
+                .HasForeignKey(d => d.Avatarid)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("avatar_fk");
         });
 
         modelBuilder.Entity<UserAdress>(entity =>

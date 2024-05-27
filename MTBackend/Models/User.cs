@@ -5,28 +5,29 @@ using Microsoft.AspNetCore.Identity;
 
 namespace MTBackend.Models;
 
-public class User (string Email, string Username, string Password, 
-    string City, string Phone, DateOnly Signupdate)
+public partial class User
 {
-    [Key]
     public long Id { get; set; }
 
-    public string Email { get; set; } = Email;
+    public string Email { get; set; } = null!;
 
-    public string Username { get; set; } = Username;
+    public string Username { get; set; } = null!;
 
-    public string Password { get; set; } = Password;
+    public string Password { get; set; } = null!;
 
-    public string Phone { get; set; } = Phone;
+    public string Phone { get; set; } = null!;
 
-    public DateOnly Signupdate { get; set; } = Signupdate;
+    public DateOnly Signupdate { get; set; }
 
-    public string City { get; set; } = City;
-    public string Refreshtoken { get; set; } = "";
+    public string City { get; set; } = null!;
+
+    public string? Refreshtoken { get; set; }
+
+    public long? Avatarid { get; set; }
+
+    public virtual Image? Avatar { get; set; }
 
     public virtual ICollection<Listing> Listings { get; set; } = new List<Listing>();
 
     public virtual ICollection<UserAdress> UserAdresses { get; set; } = new List<UserAdress>();
-
-    // public User() : this("temp", "temp", "temp", "temp", "temp", new DateOnly()){ }
 }

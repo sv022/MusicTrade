@@ -16,18 +16,13 @@ public class AuthController(AppDbContent context, ITokenService TokenService) : 
 
     [HttpPost("auth/register")]
     public IActionResult SignUp(UserSignUpBody Body){
-
-#pragma warning disable CS8604 // Возможно, аргумент-ссылка, допускающий значение NULL.
-        var NewUser = new User (
-            Body.Email, 
-            Body.Username, 
-            Hasher.Hash(Body.Password), 
-            Body.City, 
-            Body.Phone, 
-            DateOnly.FromDateTime(DateTime.Now)
-            );
-#pragma warning restore CS8604 // Возможно, аргумент-ссылка, допускающий значение NULL.
-
+        var NewUser = new User();
+        NewUser.Email = Body.Email;
+        NewUser.Username = Body.Username; 
+        NewUser.Password = Hasher.Hash(Body.Password);
+        NewUser.City = Body.City; 
+        NewUser.Phone = Body.Phone; 
+        NewUser.Signupdate = DateOnly.FromDateTime(DateTime.Now);
         // Check avaliable Username
         var user = db.Users.SingleOrDefault(u => u.Username == NewUser.Username);
         if (user != null) return StatusCode(409);
