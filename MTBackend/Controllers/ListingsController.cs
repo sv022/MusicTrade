@@ -46,10 +46,14 @@ public class ListingsController : ControllerBase
             Description = listingBody.description,
             Adress = listingBody.adress,
             Tags = listingBody.tags,
-            Publishdate = DateOnly.FromDateTime(DateTime.Now),
+            Publishdate = DateOnly.FromDateTime(DateTime.Now)
         };
         try {
             db.Listings.Add(newListing);
+            db.SaveChanges();
+            foreach (int img in listingBody.images){
+                db.ListingImages.Add(new ListingImage {Listingid = newListing.Id, Imageid = img});
+            }
             db.SaveChanges();
         } catch (Exception e) {
             return BadRequest($"Couldn't add listing: {e.Message}");

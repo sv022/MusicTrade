@@ -31,4 +31,5 @@ public class PostListingBody {
     public required string description { get; set; }
     public required string adress { get; set; }
     public required string tags { get; set; }
+    public required List<int> images { get; set; }
 }

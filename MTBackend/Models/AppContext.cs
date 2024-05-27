@@ -91,10 +91,11 @@ public partial class AppDbContent : DbContext
 
         modelBuilder.Entity<ListingImage>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("listing_images");
+            entity.HasKey(e => e.Id).HasName("id_pkey");
 
+            entity.ToTable("listing_images");
+
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Imageid).HasColumnName("imageid");
             entity.Property(e => e.Listingid).HasColumnName("listingid");
 
