@@ -21,11 +21,15 @@ public class UserController : ControllerBase
     }
 
     [HttpPatch("api/user"), Authorize]
-    public ActionResult<IEnumerable<object>> PatchUser(User newUser){
+    public ActionResult<IEnumerable<object>> PatchUser(UserPatchBody newUser){
         int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value!);
+        var user = db.Users.Where(u => u.Id == userId).SingleOrDefault();
+        if (user == null) return NotFound();
         try {
-            var user = db.Users.Where(u => u.Id == userId).SingleOrDefault();
-            user = newUser;
+            user.Email = newUser.Email;
+            user.Username = newUser.Username;
+            user.City = newUser.City;
+            user.Phone = newUser.Phone;
             db.Users.Update(user);
             db.SaveChanges();
         } catch (Exception e) {
