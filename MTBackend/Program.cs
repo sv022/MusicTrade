@@ -27,6 +27,7 @@ builder.Services.AddAuthentication("bearer")
         {
             ValidateAudience = false,
             ValidateIssuerSigningKey = true,
+            ValidateIssuer = false,
             IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(builder.Configuration["serverSigningPassword"] + "")),
             ValidateLifetime = true,
             ClockSkew = TimeSpan.Zero //the default for this setting is 5 minutes
