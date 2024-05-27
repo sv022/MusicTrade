@@ -1,15 +1,14 @@
-<script setup
-    lang="ts">
-        import {
-            DropdownMenu,
-            DropdownMenuContent,
-            DropdownMenuItem,
-            DropdownMenuLabel,
-            DropdownMenuSeparator,
-            DropdownMenuTrigger,
-        } from '@/components/ui/dropdown-menu'
+<script setup lang="ts">
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
 
-        const userStore = useUserStore();
+const userStore = useUserStore();
 
 </script>
 
