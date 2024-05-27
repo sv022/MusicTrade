@@ -62,5 +62,6 @@ if (app.Environment.IsDevelopment())
 // Configure middleware
 app.UseHttpsRedirection();
 app.UseCors(options => options.AllowAnyOrigin());
+app.UseStaticFiles();
 
 app.Run();
