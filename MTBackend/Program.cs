@@ -26,15 +26,16 @@ builder.Services.AddAuthentication("bearer")
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateAudience = false,
-            ValidateIssuer = false,
             ValidateIssuerSigningKey = true,
             IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(builder.Configuration["serverSigningPassword"] + "")),
             ValidateLifetime = true,
             ClockSkew = TimeSpan.Zero //the default for this setting is 5 minutes
         };
 
-        options.Events = new JwtBearerEvents {
-            OnAuthenticationFailed = context => {
+        options.Events = new JwtBearerEvents
+        {
+            OnAuthenticationFailed = context =>
+            {
                 if (context.Exception.GetType() == typeof(SecurityTokenExpiredException))
                     context.Response.Headers.Append("Token-Expired", "true");
                 return Task.CompletedTask;
@@ -47,11 +48,12 @@ var app = builder.Build();
 // Configure controllers
 app.MapControllerRoute(name: "default",
     pattern: "{controller=UserController}/{action=Index}/{id?}");
-app.MapControllerRoute(name: "auth", 
+app.MapControllerRoute(name: "auth",
     pattern: "{controller=AuthController}/{action=Index}/{id?}");
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment()) {
+if (app.Environment.IsDevelopment())
+{
     app.UseSwagger();
     app.UseSwaggerUI();
 }
@@ -61,4 +63,3 @@ app.UseHttpsRedirection();
 app.UseCors(options => options.AllowAnyOrigin());
 
 app.Run();
-

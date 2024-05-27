@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MTBackend.Models;
 using MTBackend.Services;
@@ -65,7 +66,17 @@ public class AuthController(AppDbContent context, ITokenService TokenService) : 
         return new ObjectResult(new {
             token = jwtToken,
             refreshToken = refreshToken
-        });    
+        });  
+    }
+
+    [HttpGet("auth/me"), Authorize]
+    public IActionResult Me() {
+        string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value!;
+
+        var user = db.Users.SingleOrDefault(u => u.Id == int.Parse(userId));
+
+        if (user != null) return Ok(user);
+        else return NotFound("User not found");
     }
 }
 

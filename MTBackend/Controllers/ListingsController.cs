@@ -19,17 +19,7 @@ public class ListingsController : ControllerBase
 
     [HttpGet("api/listings")]
     public ActionResult<IEnumerable<object>> GetListings(){
-        var listings = db.Listings.Select(u => new {
-                id = u.Id,
-                title = u.Title,
-                price = u.Price,
-                category = u.Category,
-                isExchangable = u.Isexchangable,
-                description = u.Description,
-                adress = u.Adress,
-                tags = u.Tags,
-                publishDate = u.Publishdate,
-            }).ToList();
+        var listings = db.Listings.Select(u => u).ToList();
         if (listings == null) return NotFound();
         return listings; 
     }
