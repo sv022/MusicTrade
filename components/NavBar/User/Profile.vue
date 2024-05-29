@@ -17,7 +17,7 @@ const userStore = useUserStore();
         <DropdownMenuTrigger>
             <div class="flex flex-row space-x-3">
                 <Avatar class="size-6">
-                    <AvatarImage src="https://github.com/radix-vue.png" alt="@radix-vue" />
+                    <AvatarImage :src="`https://raw.githubusercontent.com/sv022/MockDB/main/MusicTrade/img/${userStore.user.id}.png`" alt="@radix-vue" />
                     <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
                <p>{{ userStore.user.username }}</p>

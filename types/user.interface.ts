@@ -5,8 +5,7 @@ export interface IUser {
     password: string,
     city: string,
     phone: string,
-    signupdate: string,
-    image: string
+    signupdate: string
 }
 
 export interface IUserAuth {

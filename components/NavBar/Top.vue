@@ -32,7 +32,7 @@ const userStore = useUserStore();
             </DropdownMenuContent>
         </DropdownMenu>
     </div>
-    <div class="basis-1/4 flex flex-row-reverse items-center text-center space-x-10"></div>
+    <div class="basis-1/4 min-w-2"></div>
     <div class="basis-1/2 flex flex-row items-center text-nowrap">
         <div v-if="userStore.isAuth" class="flex flex-row items-center space-x-16 ml-auto mr-16">
             <div class="flex flex-row text-nowrap text-sm font-thin items-center space-x-10">

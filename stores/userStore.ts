@@ -1,7 +1,7 @@
 import type { IUser } from "~/types/user.interface";
 
 const mockUser = {
-    id: 1,
+    id: 7,
     username: "svo",
     email: "test@mail.com",
     password: "11112222",
