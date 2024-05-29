@@ -1,15 +1,14 @@
-<script setup
-    lang="ts">
-        import {
-            DropdownMenu,
-            DropdownMenuContent,
-            DropdownMenuItem,
-            DropdownMenuLabel,
-            DropdownMenuSeparator,
-            DropdownMenuTrigger,
-        } from '@/components/ui/dropdown-menu'
+<script setup lang="ts">
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
 
-        const userStore = useUserStore();
+const userStore = useUserStore();
 
 </script>
 
@@ -25,8 +24,9 @@
             </div>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-            <DropdownMenuLabel>Мой аккаунт</DropdownMenuLabel>
+            <DropdownMenuLabel> {{ userStore.user.username }}</DropdownMenuLabel>
             <DropdownMenuSeparator />
+            <DropdownMenuItem @click="navigateTo('/user/me')">Профиль</DropdownMenuItem>
             <DropdownMenuItem>Мои объявления</DropdownMenuItem>
             <DropdownMenuItem @click="userStore.userLogout">Выйти</DropdownMenuItem>
         </DropdownMenuContent>

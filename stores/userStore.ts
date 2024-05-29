@@ -1,5 +1,15 @@
 import type { IUser } from "~/types/user.interface";
 
+const mockUser = {
+    id: 1,
+    username: "svo",
+    email: "test@mail.com",
+    password: "11112222",
+    city: "msk",
+    phone: "-",
+    signupdate: "2024/05/24"
+} as IUser;
+
 export const useUserStore = defineStore('UserStore', () => {
     const user = ref<null | IUser>(null);
     const token = useCookie("_token");
@@ -10,9 +20,10 @@ export const useUserStore = defineStore('UserStore', () => {
 
     const { onLogin, getUser, onSignUp } = useAuth();
 
+    if (isAuth) user.value = mockUser;
+
     const userSingUp = async (userInfo : IUser) => {
         // const responce = await onSignUp(userInfo);
-        // console.log(responce)
         navigateTo('/signin');
         // try {
         // } catch (e) {
@@ -28,24 +39,17 @@ export const useUserStore = defineStore('UserStore', () => {
 
     const userLogin = async (userInfo : { username: string, password: string }) => {
         try {
-            // const responce = await onLogin(userInfo);
+            // // const responce = await onLogin(userInfo);
 
             // token.value = responce.data.token;
             // refreshToken.value = responce.data.refreshToken;
-            token.value = "token";
-            refreshToken.value = "refreshToken";
             
             // const currentUser = await getUser();
-            user.value = {
-                id: 0,
-                username: "svo0",
-                email: "svo0@mail.com",
-                password: "pass1",
-                city: "msk",
-                phone: "+7 (937) 915 24-12",
-                signupdate: "2024-05-27",
-                image: "4000"
-            }; 
+            user.value = mockUser; 
+            isAuth.value = true;
+            token.value = "token";
+            refreshToken.value = "refreshToken";
+
             navigateTo('/');
         } catch (e) {
             errorAuth.value = true;
