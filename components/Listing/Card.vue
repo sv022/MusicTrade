@@ -17,10 +17,10 @@ function navigate() {
 
   <div class="listing space-y-2" v-on:click="navigate()">
     <div>
-      <img src="/img/listing_placeholder_2.jpg" class="listing_photo">
+      <img :src="`https://raw.githubusercontent.com/sv022/MockDB/main/MusicTrade/img/${listing.img[0]}.png`" class="listing_photo">
     </div>
-    <div class="w-[270px]">
-      <h5>{{ listing.title }}</h5>
+    <div class="flex flex-col w-[270px] h-[150px]">
+      <h5 class="line-clamp-2 text-sm min-h-[50px]">{{ listing.title }}</h5>
       <div class="h-8 flex">
         <h4 class="font-semibold text-gray-800">{{ listing.price }} ₽</h4>
         <!-- heart icon -->
@@ -29,7 +29,7 @@ function navigate() {
         <IconsHeartBlack v-else @click.stop="favStore.toggleFav(listing)" class="ml-auto" />
         <!-- <img class="heart_listing"> -->
       </div>
-      <h6 class="mt-6 text-xs font-semibold text-gray-400">Location (at xxx)</h6>
+      <h6 class="mt-auto text-xs font-semibold text-gray-400">Location (at xxx)</h6>
     </div>
   </div>
 

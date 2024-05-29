@@ -11,8 +11,8 @@ export const useUserStore = defineStore('UserStore', () => {
     const { onLogin, getUser, onSignUp } = useAuth();
 
     const userSingUp = async (userInfo : IUser) => {
-        const responce = await onSignUp(userInfo);
-        console.log(responce)
+        // const responce = await onSignUp(userInfo);
+        // console.log(responce)
         navigateTo('/signin');
         // try {
         // } catch (e) {
@@ -28,14 +28,24 @@ export const useUserStore = defineStore('UserStore', () => {
 
     const userLogin = async (userInfo : { username: string, password: string }) => {
         try {
-            const responce = await onLogin(userInfo);
+            // const responce = await onLogin(userInfo);
 
-            token.value = responce.data.token;
-            refreshToken.value = responce.data.refreshToken;
+            // token.value = responce.data.token;
+            // refreshToken.value = responce.data.refreshToken;
+            token.value = "token";
+            refreshToken.value = "refreshToken";
             
-            const currentUser = await getUser();
-            user.value = currentUser.data; 
-
+            // const currentUser = await getUser();
+            user.value = {
+                id: 0,
+                username: "svo0",
+                email: "svo0@mail.com",
+                password: "pass1",
+                city: "msk",
+                phone: "+7 (937) 915 24-12",
+                signupdate: "2024-05-27",
+                image: "4000"
+            }; 
             navigateTo('/');
         } catch (e) {
             errorAuth.value = true;
