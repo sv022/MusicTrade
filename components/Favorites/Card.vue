@@ -17,7 +17,7 @@ function navigate() {
 
 <div class="listing flex flex-row m-2 items-center justify-around rounded-md" v-on:click="navigate()">
     <div class="w-[290px] min-w-[290px] mx-5">
-      <img src="/img/listing_placeholder_2.jpg" class="listing_photo">
+      <img :src="`https://raw.githubusercontent.com/sv022/MockDB/main/MusicTrade/img/${listing.img[0]}.png`" class="listing_photo">
     </div>
     <div class="basis-3/6 h-[215px] flex flex-col">
       <div class="space-y-5">

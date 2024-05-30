@@ -29,21 +29,26 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
   emblaMainApi.on('select', onSelect)
   emblaMainApi.on('reInit', onSelect)
 })
+
+const props = defineProps<{
+  images: string[]
+}>();
+
 </script>
 
 <template>
-  <div class="grid grid-cols-1 w-[426px] md:w-[800px] md:min-w-[800px] aspect-[4/3]">
+  <div class="grid grid-cols-1 w-[625px] md:w-[800px] md:min-w-[800px] aspect-[4/3]">
     <div class="flex w-full justify-around">
         <Carousel
           class="w-5/6"
           @init-api="(val) => emblaMainApi = val"
         >
           <CarouselContent>
-            <CarouselItem v-for="(_, index) in 10" :key="index">
-              <div class="p-1">
-                <Card>
-                  <CardContent class="flex items-center justify-center p-6">
-                    <img src="/img/listing_placeholder_2.jpg" alt="">
+            <CarouselItem v-for="img in images" :key="img">
+              <div class="p-1 h-full">
+                <Card class="h-full items-center justify-center">
+                  <CardContent class="flex items-center justify-center p-2">
+                    <img class="listing_photo" :src="`https://raw.githubusercontent.com/sv022/MockDB/main/MusicTrade/img/${img}.png`" alt="">
                   </CardContent>
                 </Card>
               </div>
@@ -60,11 +65,11 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
           @init-api="(val) => emblaThumbnailApi = val"
         >
           <CarouselContent class="flex gap-1 ml-0">
-            <CarouselItem v-for="(_, index) in 10" :key="index" class="pl-0 basis-1/4 cursor-pointer" @click="onThumbClick(index)">
+            <CarouselItem v-for="(img, index) in images" :key="img" class="pl-0 basis-1/4 cursor-pointer" @click="onThumbClick(index)">
               <div class="p-1" :class="index === selectedIndex ? '' : 'opacity-50'">
                 <Card>
                   <CardContent class="flex aspect-square items-center justify-center p-3">
-                    <img src="/img/listing_placeholder_2.jpg" alt="">
+                    <img class="listing_photo_small" :src="`https://raw.githubusercontent.com/sv022/MockDB/main/MusicTrade/img/${img}.png`" alt="">
                   </CardContent>
                 </Card>
               </div>
@@ -74,3 +79,31 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
     </div>
   </div>
 </template>
+
+<style>
+.listing_photo {
+    width: 650px;
+    height: 435px;
+    align-content: center;
+    border-radius: 5px;
+    object-fit: cover;
+}
+.listing_photo_small {
+    width: 75px;
+    height: 50px;
+    align-content: center;
+    border-radius: 10px;
+    object-fit: cover;
+}
+@media (max-width: 768px) {
+  .listing_photo {
+    width: 500px;
+    height: 270px;
+  }
+  .listing_photo_small {
+    width: 70px;
+    height: 50px;
+    border-radius: 2px;
+  }
+}
+</style>
