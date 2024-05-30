@@ -29,7 +29,7 @@ function navigate() {
         <IconsHeartBlack v-else @click.stop="favStore.toggleFav(listing)" class="ml-auto" />
         <!-- <img class="heart_listing"> -->
       </div>
-      <h6 class="mt-auto text-xs font-semibold text-gray-400">Location (at xxx)</h6>
+      <h6 class="mt-auto text-xs font-semibold text-gray-400">{{ listing.adress }}</h6>
     </div>
   </div>
 
@@ -48,6 +48,7 @@ function navigate() {
     border-radius: 10px;
     margin: 8px;
     color: #232122;
+    cursor: pointer;
   }
 
   .listing:hover {
