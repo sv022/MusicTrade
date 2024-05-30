@@ -3,11 +3,11 @@
 import type { ICategory } from "~/types/category.interface";
 
 const categories = ref<ICategory[]>([
-    {name: "Электрогитары", img: "assets/guitar.png"},
-    {name: "Классические гитары", img: "assets/classicguitar.png"},
-    {name: "Акустические гитары", img: "assets/acousticguitar.png"},
-    {name: "Гитарное усиление", img: "assets/amp.png"},
-    {name: "Педали эффектов", img: "assets/pedals.png"},
+    { name: "Электрогитары", img: "assets/guitar.png", tag: "electricGuitar" },
+    { name: "Классические гитары", img: "assets/classicguitar.png", tag: "classicGuitar" },
+    { name: "Акустические гитары", img: "assets/acousticguitar.png", tag: "acousticGuitar" },
+    { name: "Гитарное усиление", img: "assets/amp.png", tag: "amplifier" },
+    { name: "Педали эффектов", img: "assets/pedals.png", tag: "guitarPedal" },
 ]);
 
 </script>
