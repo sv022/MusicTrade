@@ -21,13 +21,12 @@ function navigate() {
     </div>
     <div class="flex flex-col w-[270px] h-[150px]">
       <h5 class="line-clamp-2 text-sm min-h-[50px]">{{ listing.title }}</h5>
-      <div class="h-8 flex">
+      <div class="h-8 flex items-center">
         <h4 class="font-semibold text-gray-800">{{ listing.price }} ₽</h4>
-        <!-- heart icon -->
-        <IconsHeartFill v-if="favStore.listings.some(l => l.id == listing.id)"
-          @click.stop="favStore.toggleFav(listing)" class="ml-auto" />
-        <IconsHeartBlack v-else @click.stop="favStore.toggleFav(listing)" class="ml-auto" />
-        <!-- <img class="heart_listing"> -->
+        <div @click.stop="favStore.toggleFav(listing)" class="flex justify-center items-center ml-auto rounded-[50%] size-8 hover:bg-slate-100">
+          <IconsHeartFill v-if="favStore.listings.some(l => l.id == listing.id)"/>
+          <IconsHeartBlack v-else />
+        </div>
       </div>
       <h6 class="mt-auto text-xs font-semibold text-gray-400">{{ listing.adress }}</h6>
     </div>

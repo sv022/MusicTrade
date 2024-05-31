@@ -30,7 +30,7 @@ listing.value = props.targetListing;
                     src="/img/user_profile.png">
                 <h5>Продавец</h5>
             </div>
-            <div class="mt-3 p-1 border border-gray-500 rounded-md w-44 text-center">Написать продавцу</div>
+            <div class="mt-3 p-1 border border-gray-500 rounded-md w-44 text-center cursor-pointer">Написать продавцу</div>
         </div>
     </div>
 </template>

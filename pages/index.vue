@@ -8,7 +8,7 @@ userCity.value = userCity.value || "Москва"
 <template>
     <NavBarTop />
     <NavBarSearch />
-    <div class="p-10 pt-0">
+    <div class="md:p-10 pt-0">
         <CategorySearchContainer />
         <ListingContainer />
     </div>

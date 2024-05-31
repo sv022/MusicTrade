@@ -15,7 +15,7 @@ onMounted( async () => {
 <template>
     <div>
         <h2 class="p-10 text-3xl">Интересные объявления</h2>
-        <div class="flex flex-wrap px-14">
+        <div class="flex flex-wrap px-10">
             <ListingCard v-for="listing in listings" :key="listing.id" :listing="listing"/>
             <p v-if="isPending">Загрузка...</p>
         </div>
