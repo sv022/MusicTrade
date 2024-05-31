@@ -1,4 +1,7 @@
 <script setup lang="ts">
+useHead({
+    title: `Вход в аккаунт | MusicTrade.ru`
+})
 
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 

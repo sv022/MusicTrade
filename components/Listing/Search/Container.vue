@@ -1,17 +1,26 @@
-<script setup>
+<script setup lang="ts">
 import useUserData from '~/composables/useData';
 const { loadListings } = useUserData();
+
+const props = defineProps<{
+    query: string,
+    tag: string,
+    category: string
+}>();
 
 let listings = ref([]);
 let isPending = ref(true);
 
-const query = useRoute().query["query"];
-const tag = useRoute().query["tag"];
+const query = props.query;
+const tag = props.tag;
+const category = props.category;
 
 onMounted( async () => {
     listings.value = (await loadListings()).data;
     if (tag) {
         listings.value = listings.value.filter(l => l.tags.lastIndexOf(tag) !== -1);
+    } else if (category) {
+        listings.value = listings.value.filter(l => l.category == category);
     } else {
         listings.value = listings.value.filter(l => l.title.toLocaleLowerCase().lastIndexOf(query.toLocaleLowerCase()) !== -1);
     }

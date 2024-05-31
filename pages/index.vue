@@ -1,4 +1,7 @@
 <script setup>
+useHead({
+    title: "MusicTrade - Продажа и обмен музыкального оборудования"
+})
 
 const userCity = useCookie("userCity")
 userCity.value = userCity.value || "Москва"

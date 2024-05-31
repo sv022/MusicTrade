@@ -1,3 +1,11 @@
+<script setup>
+
+useHead({
+    title: `Избранные объявления | MusicTrade`
+})
+
+</script>
+
 <template>
 
     <NavBarTop />
