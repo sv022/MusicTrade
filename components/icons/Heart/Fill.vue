@@ -10,8 +10,11 @@
 
 </template>
 
-<style>
+<style scoped>
 svg {
     cursor: pointer;
+}
+path:hover {
+    fill: #d39a72;
 }
 </style>

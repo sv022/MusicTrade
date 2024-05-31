@@ -48,7 +48,9 @@ module.exports = {
         "soft-gray": "#dddede",
         //"blue-gray": "#7BA4A8",
         "blue-gray": "#94b0b3",
-        "dark-blue": "#2f4858"
+        "dark-blue": "#2f4858",
+        "orange": "#D58C58",
+        "orange-hover": "#d39a72"
       }
     },
   },

@@ -47,7 +47,7 @@ const userStore = useUserStore();
         <div class="flex flex-row space-x-2 md:space-x-10 items-center ml-auto" v-else>
             <!-- <IconsHeartFill @click="navigateTo('/favorites')" /> -->
             <NavBarFavButton />
-            <NuxtLink to="/signin"><p class="text-center hidden md:inline">Вход и регистрация</p></NuxtLink>
+            <NuxtLink to="/signin"><p class="text-center text-sm hidden md:inline hover:text-orange">Вход и регистрация</p></NuxtLink>
             <NuxtLink v-if="userStore.isAuth" to="/signin" class="md:hidden"><IconsUserProfile /></NuxtLink>
             <NuxtLink v-else to="/signin" class="md:hidden"><IconsUserLogin /></NuxtLink>    
         </div>
