@@ -15,11 +15,11 @@ function navigate() {
 
 <template>
 
-<div class="listing flex flex-row m-2 items-center justify-around rounded-md cursor-pointer" v-on:click="navigate()">
+<div class="listing flex flex-row m-2 items-center justify-around rounded-md cursor-pointer w-full" v-on:click="navigate()">
     <div class="w-[290px] min-w-[290px] mx-5">
       <img :src="`https://raw.githubusercontent.com/sv022/MockDB/main/MusicTrade/img/${listing.img[0]}.png`" class="listing_photo">
     </div>
-    <div class="basis-3/6 h-[215px] flex flex-col">
+    <div class="basis-4/6 h-[215px] flex flex-col">
       <div class="space-y-5">
         <h5>{{ listing.title }}</h5>
         <h4 class="font-semibold text-gray-800">{{ listing.price }} ₽</h4>
@@ -28,7 +28,7 @@ function navigate() {
       </div>
       <h6 class="mt-auto text-xs font-semibold text-gray-400">Location (at xxx)</h6>
     </div>
-    <div class="basis-1/6 flex justify-around h-[215px]">
+    <div class="basis-1/6 flex justify-around h-[215px] ml-auto">
       <!-- heart icon -->
       <IconsHeartFill v-if="favStore.listings.some(l => l.id == listing.id)"
         @click.stop="favStore.toggleFav(listing)" />
@@ -39,10 +39,8 @@ function navigate() {
 
 </template>
 
-
 <style scoped>
 .listing {
-    width: 50dvw;
     height: 300px;
     min-width: 550px;
 }
