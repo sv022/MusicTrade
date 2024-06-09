@@ -40,6 +40,6 @@ Favorites
 
 ## Usage
 
-> [!WARNING]  
-> Critical content comes here.
+> ⚠️ Warning  
+> Project hosting discontinued.
 
