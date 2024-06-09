@@ -40,6 +40,7 @@ Favorites
 
 ## Usage
 
-> [!WARNING]
-> Project hosting discontinued, backend database dropped. 
+> **Warning**
+>  
+> This is a warning
 
