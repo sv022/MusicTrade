@@ -2,6 +2,8 @@
 /MTBackend/appsettings.Development.json
 /MTBackend/appsettings.json
 MTBackend.sln
+/MTBackend/Models/Deprecated Models/
+/MTBackend/Models/Users.txt
 
 # https config
 /MTBackend/https.pfx
@@ -21,6 +23,9 @@ project.lock.json
 *.user
 *.userosscache
 *.sln.docstates
+*.env
+Dockerfile
+docker-compose.yml
 
 # Build results
 [Dd]ebug/
