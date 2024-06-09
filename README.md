@@ -41,5 +41,5 @@ Favorites
 ## Usage
 
 > [!WARNING]  
-> Project hosting discontinued.
+> Critical content comes here.
 
