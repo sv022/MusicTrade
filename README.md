@@ -40,6 +40,6 @@ Favorites
 
 ## Usage
 
-> [!CAUTION]
+> [!WARNING]
 > Project hosting discontinued, backend database dropped. 
 
