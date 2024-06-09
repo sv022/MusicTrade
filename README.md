@@ -40,7 +40,6 @@ Favorites
 
 ## Usage
 
-> **Warning**
->  
-> This is a warning
+> [!WARNING]  
+> Project hosting discontinued.
 
